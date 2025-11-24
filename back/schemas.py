@@ -1,19 +1,22 @@
-from pydantic import BaseModel  
 from typing import Optional, List
+
+from pydantic import BaseModel
 from datetime import datetime
 
 
 class Base(BaseModel):
     pass
 
+
 class UserCreate(Base):
     last_name: str
-    first_name: str 
+    first_name: str
     patronymic: str
     photo_url: Optional[str] = None
     education_place: str
     age: int
-    hobbies: List[str]  # Список хобби
+    hobbies: List[str]
+
 
 class UserResponse(Base):
     id: int
@@ -24,6 +27,7 @@ class UserResponse(Base):
     education_place: str
     age: int
     hobbies: List[str]
+
 
 class UserUpdate(Base):
     last_name: Optional[str] = None
@@ -38,6 +42,7 @@ class UserUpdate(Base):
 class PostCreate(Base):
     title: str
     description: str
+
 
 class PostResponse(Base):
     id: int
