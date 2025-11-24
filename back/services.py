@@ -39,7 +39,7 @@ class UserService:
 
         # Преобразуем hobbies из JSON обратно в список для ответа
         hobbies_list = json.loads(db_user.hobbies)
-        
+
         return UserResponse(
             id=db_user.id,
             last_name=db_user.last_name,
