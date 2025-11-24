@@ -1,10 +1,12 @@
+from datetime import datetime
+
 from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column
 from sqlalchemy import ForeignKey, DateTime, Text
-from datetime import datetime
-import json
+
 
 class Base(DeclarativeBase):
     pass
+
 
 class User(Base):
     __tablename__ = "users"
@@ -18,11 +20,14 @@ class User(Base):
     age: Mapped[int] = mapped_column()
     hobbies: Mapped[str] = mapped_column(Text)
 
+
 class Post(Base):
     __tablename__ = "posts"
 
     id: Mapped[int] = mapped_column(primary_key=True)
     title: Mapped[str] = mapped_column()
     description: Mapped[str] = mapped_column(Text)
-    created_at: Mapped[datetime] = mapped_column(DateTime, default=datetime.utcnow)
+    created_at: Mapped[datetime] = mapped_column(
+        DateTime, default=datetime.now()
+        )
     user_id: Mapped[int] = mapped_column(ForeignKey("users.id"))

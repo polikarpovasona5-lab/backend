@@ -1,10 +1,8 @@
-from fastapi import FastAPI, Depends        
-from sqlalchemy.orm import Session
-from typing import List
+from fastapi import FastAPI
 
-from api import router                         
-from database import get_db
+from api import router
 
-app = FastAPI()                                
 
-app.include_router(router)                    
+app = FastAPI()
+
+app.include_router(router)
